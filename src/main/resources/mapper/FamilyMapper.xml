@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.family.core.dao.FamilyCoreDao">
+
+    <select id="getFamliyCoreList" parameterType="org.family.core.vo.FamliyCoreVo"
+            resultType="org.family.core.dto.FamilyCoreDto">
+
+    select * from family_members a
+    <where>
+        a.id = #{id}
+    </where>
+
+    </select>
+</mapper>
