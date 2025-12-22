@@ -33,3 +33,18 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true  # 下划线转驼峰
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 打印SQL
+
+
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    user: redis-server
+    password: Kayak123456!
+    timeout: 3000ms
+    lettuce:
+      pool:
+        max-active: 20
+        max-idle: 10
+        min-idle: 0
+        max-wait: -1ms
