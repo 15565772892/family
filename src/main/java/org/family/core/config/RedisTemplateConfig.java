@@ -20,7 +20,6 @@ public class RedisTemplateConfig {
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
 
         // 基础配置
-        config.setHostName("localhost");
         config.setPort(6379);
         config.setDatabase(0);
 
