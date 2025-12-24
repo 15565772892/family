@@ -24,9 +24,7 @@ public class RedisTemplateConfig {
         config.setPort(6379);
         config.setDatabase(0);
 
-
-        config.setUsername("default");
-        config.setPassword("Kayak123456!");
+        config.setPassword("liyazhou");
 
         // 2. 创建 Lettuce 连接工厂
         return new LettuceConnectionFactory(config);

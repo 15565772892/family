@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @Data
 public class FamliyCoreVo {
 
-    @Schema(description = "成员ID", example = "1001", accessMode = Schema.AccessMode.READ_ONLY)
+    @Schema(description = "成员ID", example = "1", accessMode = Schema.AccessMode.READ_ONLY)
     private Long id;
 
     @NotBlank(message = "姓名不能为空")

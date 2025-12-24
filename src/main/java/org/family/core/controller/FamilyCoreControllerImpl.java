@@ -16,14 +16,9 @@ public class FamilyCoreControllerImpl implements FamilyCoreController {
     @Autowired
     private FamilyCoreService familyCoreService;
 
-    @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
-
     @Override
     public List<FamilyCoreDto> getFamily(FamliyCoreVo vo) {
 
-        List<FamilyCoreDto> list = familyCoreService.getFamily(vo);
-        redisTemplate.opsForValue().set("family"+ DateUtils.getDateTime(), list.toString());
         return familyCoreService.getFamily(vo);
 
     }
