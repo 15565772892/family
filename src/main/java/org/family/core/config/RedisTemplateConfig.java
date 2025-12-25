@@ -19,10 +19,6 @@ public class RedisTemplateConfig {
         // 1. 创建 Redis 配置
         RedisStandaloneConfiguration config = new RedisStandaloneConfiguration();
 
-        // 基础配置
-        config.setPort(6379);
-        config.setDatabase(0);
-
         config.setPassword("liyazhou");
 
         // 2. 创建 Lettuce 连接工厂
