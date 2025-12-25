@@ -53,3 +53,12 @@ mybatis:
           min-idle: 2
           max-wait: 5000
         shutdown-timeout: 200ms
+logging:
+  config: classpath:distribute/dev/log4j2.xml
+  level:
+    com.example: debug
+    org.springframework: info
+  file:
+    name: logs/app.log
+    max-history: 30
+    max-size: 10MB
