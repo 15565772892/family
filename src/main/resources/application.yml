@@ -58,7 +58,30 @@ logging:
   level:
     com.example: debug
     org.springframework: info
+    org.family.core: debug
   file:
     name: logs/app.log
     max-history: 30
     max-size: 10MB
+
+# Flink CDC 数据同步配置
+data:
+  sync:
+    # MySQL 配置
+    mysql:
+      hostname: localhost
+      port: 3306
+      database: liyz
+      username: liyz
+      password: 123456
+      tables: users  # 多表用逗号分隔，如：users,orders
+
+    # ClickHouse 配置
+    clickhouse:
+      host: localhost
+      port: 8123
+      httpPort: 8123
+      database: default
+      username: default
+      password: ""
+      jdbcUrl: jdbc:clickhouse://localhost:8123/default
