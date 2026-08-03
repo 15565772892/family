@@ -30,6 +30,9 @@ public class FamilyCoreServiceImpl implements FamilyCoreService {
         List<FamilyCoreDto> famliyCoreList = familyCoreDao.getFamliyCoreList(vo);
         logger.info("▀▀▀▀▀▀▀▀▀MYSQL查询结果：{}" , famliyCoreList.size());
 
+        List<FamilyCoreDto> clickhouseList = familyCoreDao.getFamliyCoreListCH(vo);
+        logger.info("▀▀▀▀▀▀▀▀▀clickhouse查询结果：{}" , clickhouseList.size());
+
         //redis
         redisTemplate.opsForValue().set("family"+ DateUtils.getDateTime(), famliyCoreList.toString());
         logger.info("▀▀▀▀▀▀▀▀▀REDIS执行成功");

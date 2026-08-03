@@ -3,6 +3,7 @@ package org.family.core.dao;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.family.core.ds.DataSource;
 import org.family.core.dto.FamilyCoreDto;
 import org.family.core.vo.FamliyCoreVo;
 
@@ -12,5 +13,8 @@ import java.util.List;
 public interface FamilyCoreDao {
 
     List<FamilyCoreDto> getFamliyCoreList(FamliyCoreVo vo);
+
+    @DataSource("dataSourceClickhouse")
+    List<FamilyCoreDto> getFamliyCoreListCH(FamliyCoreVo vo);
 
 }

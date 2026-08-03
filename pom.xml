@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>4.0.1</version>
+		<version>3.0.12</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>org.family</groupId>
@@ -30,6 +30,11 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+        <!--spring aop-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter</artifactId>
@@ -56,29 +61,35 @@
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
+        <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
             <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>3.0.3</version>  <!-- 兼容 Spring Boot 4.x -->
+            <version>3.0.3</version>
         </dependency>
+        <!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+        <!-- redis -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
+        <!-- spring-boot-starter-test -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <!-- 日志 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
+        <!-- docker-java -->
         <dependency>
             <groupId>com.github.docker-java</groupId>
             <artifactId>docker-java</artifactId>
@@ -93,19 +104,6 @@
         <dependency>
             <groupId>org.apache.httpcomponents.client5</groupId>
             <artifactId>httpclient5</artifactId>
-            <version>5.2.1</version>
-        </dependency>
-
-        <!-- 必须添加的 httpcore5 依赖 -->
-        <dependency>
-            <groupId>org.apache.httpcomponents.core5</groupId>
-            <artifactId>httpcore5</artifactId>
-            <version>5.2.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.httpcomponents.core5</groupId>
-            <artifactId>httpcore5-h2</artifactId>
             <version>5.2.1</version>
         </dependency>
         <!-- Flink Core -->
@@ -165,25 +163,11 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<annotationProcessorPaths>
-						<path>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</path>
-					</annotationProcessorPaths>
-				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>

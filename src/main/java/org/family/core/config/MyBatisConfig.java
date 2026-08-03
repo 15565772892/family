@@ -4,6 +4,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
@@ -15,16 +16,16 @@ import javax.sql.DataSource;
 @MapperScan(basePackages = "org.family.core.dao")
 public class MyBatisConfig {
 
-    /**
-     * 方式1：显式配置 SqlSessionFactory（可选）
-     * 如果不配置，MyBatis Starter 会自动创建
-     */
+    @Qualifier("multipleDataSource")
+    @Autowired
+    private DataSource multipleDataSource;
+
     @Bean
-    public SqlSessionFactory sqlSessionFactory(@Autowired DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
 
         // 1. 设置数据源
-        sessionFactory.setDataSource(dataSource);
+        sessionFactory.setDataSource(multipleDataSource);
 
         // 2. 设置实体类别名包
         sessionFactory.setTypeAliasesPackage("org.family.core.dto");

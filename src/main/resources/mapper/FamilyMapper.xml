@@ -11,4 +11,15 @@
     </where>
 
     </select>
+
+    <select id="getFamliyCoreListCH" parameterType="org.family.core.vo.FamliyCoreVo"
+            resultType="org.family.core.dto.FamilyCoreDto">
+
+        select * from family_members a
+        <where>
+            a.id = #{id}
+        </where>
+
+    </select>
+
 </mapper>
